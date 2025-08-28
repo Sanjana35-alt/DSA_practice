@@ -7,23 +7,38 @@ struct Node{
 };
 
 void traversal(struct Node* ptr){
-    int i = 0;
+    int i = 1;
     while(ptr != NULL){
-        printf("Node %d: %d\n", i+1, ptr->data);
+        printf("Node %d: %d\n", i, ptr->data);
         ptr = ptr->link;
         i++;
     }
 }
 
-struct Node* insert(struct Node* head, int data){
+
+
+struct Node* insertAtIndex(struct Node* head, int data, int index){
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
+
+    if(index == 1){
+        newNode->link = head;
+        return newNode;
+    }
+
+    struct Node* temp = head;
+    for (int i = 0; i < index - 1 && temp != NULL; i++) {
+        temp = temp->link;
+    }
+
+    
 }
+
 
 int main(){
     int n;
     printf("How many nodes you want in the linked list?\n");
-    printf("Please enter here :");
+    printf("Please enter here : ");
     scanf("%d", &n);
 
 
